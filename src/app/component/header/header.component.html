@@ -1,0 +1,27 @@
+<div class="upbar">
+  <a class="logo">
+    <img src="./assets/image/logo.png" alt="Logo" width="100px" height="100px"/>
+  </a>
+
+  <form>
+    <input type="text" placeholder="Искать здесь...">
+    <button class="search" type="submit"></button>
+  </form>
+
+  <div class="cart">
+    <a (click)="navigate('basket')">
+      <button type="submit"> Корзина</button>
+    </a>
+  </div>
+  <div class="help">
+    <a (click)="navigate('help')">
+      <button type="submit"> Помощь</button>
+    </a>
+  </div>
+
+</div>
+<nav class="menu">
+  <a (click)="navigate('')">Одежда</a>
+  <a (click)="navigate('shoes')">Обувь</a>
+  <a (click)="navigate('accessory')">Аксессуары</a>
+</nav>

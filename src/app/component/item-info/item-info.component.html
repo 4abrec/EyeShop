@@ -1,0 +1,29 @@
+<app-header></app-header>
+<main>
+  <div class="product_info">
+    <div class="product_photo">
+      <div [style.background-image]="'url(' + item.photoUrl + ')'" class="product_photo_wrap"  onmousemove='zoom(event)'>
+        <img src="{{item.photoUrl}}"/>
+      </div>
+    </div>
+    <div class="product_features">
+      <p class="name">{{item.title}}</p>
+      <p class="price">{{item.price}},00 руб. </p>
+      <div class="sizes" *ngIf="itemSizes.length !== 2">
+        <select  [(ngModel)]="size">
+          <option *ngFor="let c of itemSizes" [ngValue]="c">{{c}}</option>
+        </select>
+      </div>
+      <button class="add_to_cart">
+        В корзину
+      </button>
+    </div>
+
+  </div>
+  <div class="product_description">
+    <h1>{{item.title}}</h1>
+    <h2>Описание товара</h2>
+
+    <p>{{item.description}}</p>
+  </div>
+</main>

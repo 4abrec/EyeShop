@@ -1,0 +1,71 @@
+<app-header></app-header>
+<div class="container" style="width: 500px">
+  <fieldset>
+    <p style="font-size: 20px">Добавить товар</p>
+    <p>
+      <label for="name">Название
+        <em>*</em>
+      </label>
+      <input [(ngModel)]="title" maxlength="100" type="text" id="name" placeholder="Название">
+    </p>
+    <p>
+      <label>Цена
+        <em>*</em>
+        <span class="r">Введите число. Разделитель дробной части  точка.
+                            </span>
+      </label>
+      <input [(ngModel)]="price" maxlength="20" type="text" id="price" >
+    </p>
+    <p>
+      <label>Описание</label>
+      <textarea [(ngModel)]="description" type="text" id="description" placeholder="Описание" onkeyup="checkForm(this);"></textarea>
+    </p>
+    <p>
+      <label>Размеры
+        <em>*</em>
+        <span class="r">Формат для заполнения: Размер(eu):Количество; <br>
+                                            Размеры от 30 до 59 (включая половинки)<br>
+                                            Пример: 37.5:2;41:1;41.5:7;
+                            </span>
+      </label>
+      <input [(ngModel)]="sizes" type="text" id="sizes" placeholder="Размер товара">
+    </p>
+
+    <p>
+      <label>Раздел
+        <em>*</em>
+      </label>
+
+      <select [(ngModel)]="chapter" (change)="onChange()">
+        <option *ngFor="let c of chapter_values">{{c.title}}</option>
+      </select>
+
+    </p>
+
+    <p>
+      <label>Бренд
+        <em>*</em>
+      </label>
+
+      <select [(ngModel)]="brand" (change)="onChange()">
+        <option *ngFor="let o of brands_values">{{o.title}}</option>
+      </select>
+
+    </p>
+    <p>
+      <label>Категория
+        <em>*</em>
+      </label>
+      <select [(ngModel)]="category" (change)="onChange()">
+        <option *ngFor="let c of category_values">{{c.title}}</option>
+      </select>
+    </p>
+    <p><label>Ссылка на фото товара
+      <em>*</em>
+    </label>
+      <input type="text" [(ngModel)]="photo_url"></p>
+    <p>
+      <button class="submit" type="submit" (click)="addItem()">Добавить товар</button>
+    </p>
+  </fieldset>
+</div>

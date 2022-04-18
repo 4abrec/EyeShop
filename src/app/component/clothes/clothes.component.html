@@ -1,0 +1,45 @@
+<app-header></app-header>
+<div class="filtres">
+  <section>
+    <select [(ngModel)]="sort">
+      <option *ngFor="let o of sortValues">{{o}}</option>
+    </select>
+
+    <select [(ngModel)]="brand" (change)="onChange()">
+      <option *ngFor="let o of brands_values">{{o.title}}</option>
+    </select>
+
+    <select [(ngModel)]="category">
+      <option *ngFor="let c of category_values">{{c.title}}</option>
+    </select>
+
+    <select [(ngModel)]="size">
+      <option>XS</option>
+      <option>S</option>
+      <option>M</option>
+      <option>L</option>
+      <option>XL</option>
+      <option selected>Все размеры</option>
+    </select>
+
+    <button style="height: 40px; width: 100px" (click)="filterItems()">Применить</button>
+  </section>
+</div>
+<section>
+  <div class=products>
+    <div class="product-item" *ngFor="let i of viewItems">
+      <img [src]="i.photoUrl" (click)="viewItem(i.id)">
+      <div class="product-list">
+        <p class="title">{{i.title}}</p>
+        <p class="price">{{i.price}} руб.</p>
+        <a (click)="navigate('basket')" class="button">В корзину</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <button (click)="pagination()" style="margin-left: 40%; width: 120px; height: 35px">Загрузить ещё</button>
+  <button (click)="navigate('add_item')" style="margin-left: 10px; width: 120px; height: 35px">
+    Добавить товар
+  </button>
+
